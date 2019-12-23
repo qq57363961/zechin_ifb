@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -9,5 +9,52 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+
+<!-- <view>
+ <image class="logo" src="/images/index/logoone_zc.jpg" mode="widthFix"></image>
+</view> -->
+<image class="banner" src="/images/index/zechinIndex.jpg" mode="widthFix"></image>
+<view class="block">
+  <view class="block-title">关于我们</view>
+  <view class="divLine_90"></view>
+  <!-- https://blog.csdn.net/shving/article/details/88087712 -->
+  <view class="cmty-desc {{fold ? 'fold' : 'unfold'}}">{{zechinInfo}}</view>
+  <view class="view-all-layout">
+    <text class="view-all" bindtap="unfold">{{foldText}}</text>
+  </view>
+</view>
+<view class="block news">
+  <view class="block-title">最新招标</view>
+  <view class="divLine_90"></view>
+  <!-- 最新招标列表 -->
+  <view class="item-list">
+    <!-- 列表详情 -->
+    <view class="ifb-item" wx:for="{{zhaobiaoList}}" wx:key="index">
+      <view data-index="{{index}}" bindtap="changeToggle">
+        <!-- 1.列表图片 -->
+        <image class="ifb-logo" src="/images/index/li_{{index+1}}.png" mode="widthFix"></image>
+        <!-- 2.列表标题 -->
+        <view class="ifb-title">
+          <text class="title" space="emsp">{{item.title}}\n</text>
+          <text class="subTitle">{{item.subTitle}}\n</text>
+          <view class="up_down">
+            <image src="/images/index/{{showIndex == index ? 'up':'down'}}.png" mode="widthFix"></image>
+          </view>
+        </view>
+        <view wx:if="{{showIndex == index}}" class="divLine_90"></view>
+        <!-- 3.列表详细内容 -->
+        <view wx:if="{{showIndex == index}}">
+          <view class="ifb-body">
+            <view class="ifb-detail" wx:for="{{detailList[index]}}" wx:key="index">
+              <text class="ifb-detail-list">({{index+1}}) {{item}}\n</text>
+            </view>
+          </view>
+          <view class="divLine_90"></view>
+          <view class="ifb-footer">发布时间：{{item.riqi}}</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

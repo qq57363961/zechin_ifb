@@ -1,5 +1,6 @@
 /**index.wxss**/
-.userinfo {
+
+/* .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,4 +19,151 @@
 
 .usermotto {
   margin-top: 200px;
+} */
+
+/* .logo{
+  width:70%;
+} */
+
+/* 首页背景颜色 */
+
+page {
+  background: #f3f3f3;
+}
+
+/* 首页图片 */
+
+.banner {
+  display: block;
+  width: 100%;
+}
+
+/* 《关于我们》设置 */
+
+.block {
+  background: #fff;
+  margin-top: 15rpx;
+}
+
+/* 《关于我们》title */
+
+.block-title {
+  position: relative;
+  font-size: 34rpx;
+  line-height: 1.5;
+  color: #2e5e86;
+  padding: 10rpx 20rpx;
+  text-indent: 40rpx;
+}
+
+/* 《关于我们》前面标识 */
+
+.block-title::after {
+  position: absolute;
+  left: 20rpx;
+  top: 18rpx;
+  content: "";
+  width: 10rpx;
+  height: 34rpx;
+  background: #2e5e86;
+}
+/* 《最新招标》 */
+.news{
+  margin-top: 50rpx;
+}
+
+/* 《关于我们》详细内容 */
+/* 关于我们文字的展开与收起 */
+
+.cmty-desc {
+  line-height: 1.6;
+  padding: 0 30rpx 10rpx;
+  font-size: 30rpx;
+  color: #666;
+  /* 关键属性 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 结尾以省略号显示 */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-indent: 60rpx;
+}
+
+.fold {
+  /* 设置折叠之后显示的行数 */
+  -webkit-line-clamp: 2;
+}
+
+.unfold {
+  -webkit-line-clamp: 0;
+}
+
+.view-all-layout {
+  width: 100%;
+  position: relative;
+}
+
+.view-all {
+  position: absolute;
+  left: 25rpx;
+  font-size: 30rpx;
+  color: #308CFB;
+  padding: 5rpx;
+}
+/* 《最新招标》序号图片 */
+.ifb-item{
+  overflow: hidden;
+  padding: 5rpx 20rpx;
+  border-bottom: 2px dotted #ddd;
+}
+.ifb-item :hover{
+  background: #F5FFFA;
+}
+.ifb-logo{
+  float:left;
+  width:70rpx;
+  margin-top: 25rpx;
+}
+.ifb-title{
+  margin-left:100rpx;
+}
+.title{
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #008BFB;
+}
+.subTitle{
+  font-size: 28rpx;
+  color: #666;
+}
+.up_down image{
+  width: 40rpx;
+}
+/* 招标详细信息列表 */
+.ifb-detail-list{
+  display: inline-block;
+  width: 90%;
+  color:#666;
+  margin: 10rpx 30rpx;
+  font-size: 28rpx;
+  line-height: 1.3;
+}
+/* 招标信息时间显示footer */
+.ifb-footer{
+  margin: 0 30rpx;
+  font-size: 30rpx;
+  color: #A0522D;
+}
+/* 添加一条分割线 */
+.divLine_90{
+  background: #E0E3DA;
+  width: 90%;
+  height: 2rpx;
+  margin: auto;
+}
+.divLine_95{
+  background: #E0E3DA;
+  width: 95%;
+  height: 2rpx;
+  margin: auto;
 }
