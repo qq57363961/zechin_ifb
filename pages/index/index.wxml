@@ -15,7 +15,7 @@
 <!-- <view>
  <image class="logo" src="/images/index/logoone_zc.jpg" mode="widthFix"></image>
 </view> -->
-<image class="banner" src="/images/index/zechinIndex.jpg" mode="widthFix"></image>
+<image class="banner" src="/images/index/zechinIndex.jpg" mode="widthFix" lazy-load="{{true}}"></image>
 <view class="block">
   <view class="block-title">关于我们</view>
   <view class="divLine_90"></view>
@@ -29,18 +29,22 @@
   <view class="block-title">最新招标</view>
   <view class="divLine_90"></view>
   <!-- 最新招标列表 -->
-  <view class="item-list">
+  <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower" class="item-list">
     <!-- 列表详情 -->
     <view class="ifb-item" wx:for="{{zhaobiaoList}}" wx:key="index">
       <view data-index="{{index}}" bindtap="changeToggle">
         <!-- 1.列表图片 -->
-        <image class="ifb-logo" src="/images/index/li_{{index+1}}.png" mode="widthFix"></image>
+        <view class="ifb-icon">
+          <image class="ifb-logo" src="/images/index/list{{index%6+1}}.png" mode="widthFix" lazy-load="{{true}}"></image>
+          <text wx:if="{{index<=9}}" class="ifb-no-27rpx" style="color:{{fontColorList[index%6]}};">{{index+1}}</text>
+          <text wx:else class="ifb-no-17rpx" style="color:{{fontColorList[index%6]}};">{{index+1}}</text>
+        </view>
         <!-- 2.列表标题 -->
         <view class="ifb-title">
           <text class="title" space="emsp">{{item.title}}\n</text>
           <text class="subTitle">{{item.subTitle}}\n</text>
           <view class="up_down">
-            <image src="/images/index/{{showIndex == index ? 'up':'down'}}.png" mode="widthFix"></image>
+            <image src="/images/index/{{showIndex == index ? 'up':'down'}}.png" mode="widthFix" lazy-load="{{true}}"></image>
           </view>
         </view>
         <view wx:if="{{showIndex == index}}" class="divLine_90"></view>
@@ -56,5 +60,5 @@
         </view>
       </view>
     </view>
-  </view>
+  </scroll-view>
 </view>

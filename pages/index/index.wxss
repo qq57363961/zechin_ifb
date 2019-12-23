@@ -73,6 +73,9 @@ page {
 }
 
 /* 《关于我们》详细内容 */
+.item-list{
+  height: 600rpx;
+}
 /* 关于我们文字的展开与收起 */
 
 .cmty-desc {
@@ -115,6 +118,19 @@ page {
   overflow: hidden;
   padding: 5rpx 20rpx;
   border-bottom: 2px dotted #ddd;
+}
+.ifb-icon{
+  position: relative;
+}
+.ifb-no-27rpx{
+  position: absolute;
+  top: 36rpx;
+  left: 27rpx;
+}
+.ifb-no-17rpx{
+  position: absolute;
+  top: 36rpx;
+  left: 17rpx;
 }
 .ifb-item :hover{
   background: #F5FFFA;

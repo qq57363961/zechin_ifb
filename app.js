@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    zhaobiaoUrl: 'http://127.0.0.1:3000/'
   }
 })
