@@ -37,7 +37,9 @@ page {
   display: block;
   width: 100%;
 }
-
+swiper{
+  height: 350rpx;
+}
 /* 《关于我们》设置 */
 
 .block {
@@ -71,10 +73,13 @@ page {
 .news{
   margin-top: 50rpx;
 }
-
+.zbLength{
+  color: #3CB371;
+  font-size: 30rpx;
+}
 /* 《关于我们》详细内容 */
 .item-list{
-  height: 600rpx;
+  height: 650rpx;
 }
 /* 关于我们文字的展开与收起 */
 
@@ -91,10 +96,9 @@ page {
   overflow: hidden;
   text-indent: 60rpx;
 }
-
 .fold {
   /* 设置折叠之后显示的行数 */
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
 }
 
 .unfold {
@@ -126,11 +130,13 @@ page {
   position: absolute;
   top: 36rpx;
   left: 27rpx;
+  font-size: 30rpx;
 }
 .ifb-no-17rpx{
   position: absolute;
   top: 36rpx;
   left: 17rpx;
+  font-size: 30rpx;
 }
 .ifb-item :hover{
   background: #F5FFFA;

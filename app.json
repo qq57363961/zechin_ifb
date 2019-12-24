@@ -7,8 +7,10 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "招标信息",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "则成招标",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#eee"
   },
   "tabBar":{
     "selectedColor": "#459EE7",
@@ -20,13 +22,13 @@
         "selectedIconPath":"/images/main/iconfont-home-active.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/inviteDetail/inviteDetail",
         "text": "招标",
         "iconPath": "/images/main/iconfont-list.png",
         "selectedIconPath": "/images/main/iconfont-list-active.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/personalInfo/personalInfo",
         "text": "我的",
         "iconPath": "/images/main/iconfont-user.png",
         "selectedIconPath": "/images/main/iconfont-user-active.png"

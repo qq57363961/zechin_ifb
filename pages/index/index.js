@@ -8,7 +8,18 @@ Page({
     // userInfo: {},
     // hasUserInfo: false,
     // canIUse: wx.canIUse('button.open-type.getUserInfo')
-    zechinInfo: '深圳市则成电子股份有限公司成立于2003年01月23日，注册地位于深圳市龙岗区南湾街道丹竹头社区康正路48号莲塘工业区6号楼1楼(半层)、2楼、3楼、4楼（整层），法人代表为薛兴韩。经营范围包括智能手机传感器及组件、医疗电子监控器、汽车用LED照明系统、电动工具用电源控制板、10G以太网耦合器、高精密薄膜开关、柔性线路板、刚挠结合线路板和HDI高密度积层线路板、透明取酰亚胺薄膜、自动化设备的技术开发、销售；LED灯具、线连接、电源控制板、薄膜开关的销售；电子产品的技术开发与销售；国内贸易，经营进出口（法律、行政法规禁止的项目除外；法律、行政法规限制的项目须取得许可后方可经营）。^智能手机传感器及组件、医疗电子监控器、汽车用LED照明系统、电动工具用电源控制板、10G以太网耦合器、高精密薄膜开关的生产（凭有效的环保批复经营）。深圳市则成电子股份有限公司对外投资4家公司，具有1处分支机构。',
+      imgUrls: [
+        '/images/index/zechinIndex.jpg',
+        '/images/index/zechinIntr1.jpg',
+        '/images/index/zechinIntr4.jpg',
+        '/images/index/zechinIntr3.jpg',     
+      ],
+      indicatorDots: true, // 是否显示面板指示点
+      autoplay: true, // 是否自动切换
+      circular: true, // 是否采用衔接滑动
+      interval: 3000, // 自动切换时间间隔
+      duration: 1000, // 滑动动画时长
+    zechinInfo: '则成电子（股票代码837821）成立于2003年，为国家级高新技术企业。公司专注于FPC应用的定制化传感器模组模块的JDM制造服务商，产品主要应用包括汽车电子、医疗监护、指纹识别、通讯和消费电子等领域。公司拥有成熟完善的运作平台和管理体系实现与国际接轨，秉持顾客和技术双轮驱动的发展理念。则成电子在基于FPC运用的传感器JDM制造服务领域始终保持领先性，并由此成为众多世界500强企业的优秀供应商和合作伙伴。展望未来，以“创造-则成健康完美的人生”为愿景，发扬“诚信、和谐、创新、高效”的企业精神，则成电子将持续不断地扩大对世界的贡献。\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;广东则成科技有限公司是则成电子的全资子公司，根据企业产业布局和发展规划，新建年产45万平方米线路板“智造”工厂，此项目位于珠海市富山工业园富山片区高栏港高速东侧，2019年5月23日正式开工建设，预计2020年12月份建成投产。现就广东则成科技有限公司线路板生产设备、材料、工艺方案等全球供应链招商，欢迎专业厂商和朋友洽谈。',
     // zhaobiaoList: null,  //2.
     zhaobiaoList: [{
         "title": "FPC精密冲床",
@@ -94,6 +105,10 @@ Page({
     fold: true,
     foldText: '展开',
     showIndex: -1,
+    zhaobiaoListLength:0,  //最新招标数量
+    //windowHeight:600,
+    //page: 1, //页码
+    //flag: true //开关 true表示可以请求数据
   },
   unfold: function(e) {
     var page = this;
@@ -127,6 +142,16 @@ Page({
     })
   },
   onLoad: function() {
+    // this.requestData();
+    // //获取屏幕高度
+    // var self = this;
+    // wx.getSystemInfo({
+    //   success: function(res) {
+    //     self.setData({
+    //       windowHeight:res.windowHeight
+    //     })
+    //   },
+    // })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -155,6 +180,8 @@ Page({
     }
     //获取招标信息
     //this.getZhaobiaoList(); //3.
+    //获取招标数量
+    this.getZhaoBiaoListLength();
   },
   onReady:function(){
     //获取招标信息的列表中的detail列表
@@ -180,29 +207,52 @@ Page({
     })
     //console.log(self.data.detailList);
   },
-  //滚动到底部触发事件  
-  searchScrollLower: function() {
-    let that = this;
-    if (that.data.searchLoading && !that.data.searchLoadingComplete) {
-      that.setData({
-        searchPageNum: that.data.searchPageNum + 1, //每次触发上拉事件，把searchPageNum+1  
-        isFromSearch: false //触发到上拉事件，把isFromSearch设为为false  
-      });
-    }
-  },
   //访问网络，获取招标信息1.
-  /* 
-  getZhaobiaoList: function() {
-    var self = this;
+  /*
+  requestData: function() {
+    this.setData({
+      flag:false
+    })
+    var that = this;
     wx.request({
       url: app.globalData.zhaobiaoUrl,
-      method: "GET",
-      success: function(res) {
-        self.setData({
-          zhaobiaoList: res.data
+      data: {
+        a: 'getPortalList',
+        catid: '5',
+        page: that.data.page
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        if (res.data.result.length < 5) {//请求到的数据length<5时候，表示已经是最后一页，关掉开关
+          var f = false;
+        } else {
+
+          var f = true;
+        }
+
+        var list = that.data.list.concat(res.data.result)
+        var page = ++that.data.page;
+        that.setData({
+          list: list,
+          page: page,
+          flag: f
         })
       }
     })
-  }
+  },
   */
+  loadMore() {//出发加载更多
+    // if (this.data.flag) {
+    //   this.requestData(); 
+    // }
+    console.log("已经滑动到最底部了，继续加载数据。。。");
+  } ,
+  //获取招标信息数量
+  getZhaoBiaoListLength:function(){
+    //zhaobiaoList的长度
+    var len = this.data.zhaobiaoList.length;
+    this.setData({zhaobiaoListLength:len});
+  }
 })

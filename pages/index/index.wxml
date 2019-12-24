@@ -15,21 +15,29 @@
 <!-- <view>
  <image class="logo" src="/images/index/logoone_zc.jpg" mode="widthFix"></image>
 </view> -->
-<image class="banner" src="/images/index/zechinIndex.jpg" mode="widthFix" lazy-load="{{true}}"></image>
+<!-- <image class="banner" src="/images/index/zechinIndex.jpg" mode="widthFix" lazy-load="{{true}}"></image> -->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="banner" mode="widthFix"/>
+    </swiper-item>
+  </block>
+</swiper>
 <view class="block">
   <view class="block-title">关于我们</view>
   <view class="divLine_90"></view>
   <!-- https://blog.csdn.net/shving/article/details/88087712 -->
-  <view class="cmty-desc {{fold ? 'fold' : 'unfold'}}">{{zechinInfo}}</view>
+  <text class="cmty-desc {{fold ? 'fold' : 'unfold'}}" decode="{{true}}">{{zechinInfo}}</text>
   <view class="view-all-layout">
     <text class="view-all" bindtap="unfold">{{foldText}}</text>
   </view>
 </view>
 <view class="block news">
-  <view class="block-title">最新招标</view>
+  <view class="block-title">最新招标<text class="zbLength">({{zhaobiaoListLength}})</text></view>
   <view class="divLine_90"></view>
   <!-- 最新招标列表 -->
-  <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower" class="item-list">
+  <scroll-view scroll-y="true" scroll-x="false" bindscrolltolower="loadMore" class="item-list">
     <!-- 列表详情 -->
     <view class="ifb-item" wx:for="{{zhaobiaoList}}" wx:key="index">
       <view data-index="{{index}}" bindtap="changeToggle">

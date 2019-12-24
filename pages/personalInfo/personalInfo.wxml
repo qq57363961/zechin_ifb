@@ -1,2 +1,35 @@
 <!--pages/personalInfo/personalInfo.wxml-->
-<text>pages/personalInfo/personalInfo.wxml</text>
+<image class="banner" src="/images/index/zechinIndex.jpg" mode="widthFix" lazy-load="{{true}}"></image>
+<!-- 登录注册 -->
+<view class="login">
+  <view class="imgBlock">
+    <image src="/images/personallInfo/usr.png" mode="widthFix" lazy-load="{{true}}"></image>
+  </view>
+  <text class="loginOrRegister">点击登录/注册</text>
+  <view class="jilu">
+    <view class="toubiao">
+      <text>{{toubiao}}\n</text>
+      <text>我的投标\n</text>
+    </view>
+    <view class="shoucang">
+      <text>{{shoucang}}\n</text>
+      <text>我的收藏\n</text>
+    </view>
+  </view>
+</view>
+<view class="infoDetail">
+  <!-- 详细信息 -->
+  <view class="d-flex"><text>我的投标</text><image src="/images/personallInfo/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image></view>
+  <view class="divLine_90"></view>
+  <view class="d-flex"><text>我的个人信息</text><image src="/images/personallInfo/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image></view>
+  <view class="divLine_90"></view>
+  <view class="d-flex"><text>我的公司信息</text><image src="/images/personallInfo/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image></view>
+  <view class="divLine_90"></view>
+  <view class="d-flex"><text>在线客服</text><image src="/images/personallInfo/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image></view>
+  <view class="divLine_90"></view>
+  <view class="d-flex"><text>客服电话</text><image src="/images/personallInfo/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image></view>
+  <view class="divLine_90"></view>
+  <view class="d-flex"><text>功能反馈</text><image src="/images/personallInfo/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image></view>
+  <view class="divLine_90"></view>
+  <view class="tuichu">退出</view>
+</view>

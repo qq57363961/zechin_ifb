@@ -1,1 +1,82 @@
 /* pages/personalInfo/personalInfo.wxss */
+page {
+  background: #f3f3f3;
+}
+/* 登录注册部分 */
+.banner {
+  display: block;
+  width: 100%;
+  position: absolute;
+}
+.login{
+  width: 90%;
+  height: 350rpx;
+  background: white;
+  position: absolute;
+  top:60rpx;
+  left:5%;
+  border: 1rpx solid #DEDEDE;
+  box-shadow: 5px 5px 5px #888888;
+  border-radius: 5%;
+}
+.login image{
+  width: 100rpx;
+  margin-left: 5rpx;
+}
+.loginOrRegister{
+  position: absolute;
+  top: 55rpx;
+  left: 175rpx;
+  font-size: 40rpx;
+}
+.imgBlock{
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx; 
+  display: block;
+  width: 115rpx;
+  height: 115rpx;
+  border: 4rpx solid #696969;
+  border-radius: 50%;
+}
+.jilu{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 200rpx;
+  font-size: 34rpx;
+}
+.jilu view text:first-child{
+  padding-left: 58rpx;
+}
+/* 详细信息部分 */
+.infoDetail{
+  position: absolute;
+  top: 450rpx;
+  width: 100%;
+  background: #FFFFFF;
+}
+/* 分割线 */
+.divLine_90{
+  background: #E0E3DA;
+  width: 90%;
+  height: 2rpx;
+  margin: auto;
+}
+.infoDetail{
+  font-size: 34rpx;
+}
+.infoDetail image{
+  width: 40rpx;
+}
+.d-flex{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  padding: 30rpx 0;
+}
+.tuichu{
+  display: flex;
+  justify-content: center;
+  padding: 30rpx 0;
+}
